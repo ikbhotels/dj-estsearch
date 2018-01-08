@@ -1,0 +1,30 @@
+h2 {
+    margin-bottom: 0.1ex;
+    font-size: large;
+}
+
+p.timestamp {
+    margin-top: 0.1ex;
+    margin-bottom: 0.1ex;
+    padding-left: 20pt;
+}
+
+p.snipet {
+    margin-top: 0.1ex;
+    margin-bottom: 0.1ex;
+    padding-left: 20pt;
+    font-size: small;
+}
+
+input {
+    font-size: large;
+}
+
+select {
+    font-size: large;
+}
+
+div.pages {
+    margin-top: 2ex;
+    width: 100%;
+}

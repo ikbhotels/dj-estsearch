@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http_equiv="Content-Type" content="text/html; charset=utf-8" />
+{% load static %}
+<link rel="stylesheet" href="{% static "search/common.css" %}" />
+<title>{{ title }}</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" />
+</head>
+<body>
+<h1>{{ title }}</h1>
+<form>
+{{ form.q }} {{ form.order }} <input type="submit" value="検索" />
+</form>
+<p class="error">{{ error }}</p>
+{% for item in result %}
+    <div class="result_entry">
+    <h2 class="title"><a href="{{item.uri}}">{{item.title}}</a></h2>
+    <p class="timestamp">{{ item.mdate }}</p>
+    <p class="snipet">{{ item.text }}</p>
+    </div>
+{% endfor %}
+<div class="pages">
+{% if param_prev %}
+<span class="link_prev">
+<a href="{% url 'search:index' setid %}?{{param_prev}}">&lt;&lt; 前の10件</a>
+</span>
+{% endif %}
+{% if hitnum %}
+<span>{{start}} / {{hitnum}}</span>
+{% endif %}
+{% if param_next %}
+<a href="{% url 'search:index' setid %}?{{param_next}}">次の10件 &gt;&gt;</a>
+{% endif %}
+</div>
+</body>
+</html>
